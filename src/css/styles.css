@@ -1,0 +1,113 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html{
+	font-family: Roboto;
+}
+
+body {
+  color: #292929;
+  font: 90% Roboto, Arial, sans-serif;
+  font-weight: 300;
+}
+
+p {
+  padding: 0 10px;
+  line-height: 1.8;
+}
+
+ul li {
+  padding-right: 10px;
+  line-height: 1.6;
+}
+
+h2 {
+  padding: 5px 20px;
+  margin: 0;
+}
+
+h3 {
+  padding: 5px 20px;
+  margin: 0;
+}
+
+div#accueil ul {
+  padding: 0;
+}
+
+div#header {
+  position: relative;
+}
+
+div#header {
+  height: 80px;
+  line-height: 80px;
+  margin: 0;
+  padding-left: 10px;
+  background: #e0e0e0;
+  color: #292929;
+  height: 150px;
+  text-align: center;
+}
+
+
+
+div#navigation {
+  background: #659224;
+  height: 35em;
+}
+
+div#navigation li {
+  list-style: none;
+}
+
+div#extra {
+  background: #379EC1;
+  text-align: center;
+  height: 35em;
+}
+
+
+
+div#wrapper {
+  float: left;
+  width: 100%;
+}
+
+div#content {
+  margin: 0 25%;
+}
+
+div#navigation {
+  float: left;
+  width: 25%;
+  margin-left: -100%;
+}
+
+div#extra {
+  float: left;
+  width: 25%;
+  margin-left: -25%;
+}
+
+/* div#footer {
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+} */
+
+div#footer {
+  position: fixed;
+  background: #42444e;
+  color: #fff;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+}
+
+div#footer p {
+  text-align: center;
+}
