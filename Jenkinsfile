@@ -5,7 +5,7 @@ pipeline {
         stage ('Build') {
             steps {
                 git branch: 'main',
-                credentialsId: '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',
+                credentialsId: 'a2708897-085f-4caf-a81d-8e46c2ebaa10',
                 url: 'https://github.com/y0un355/MSPR_GoSecuri.git'
             }
           }
