@@ -4,11 +4,13 @@ pipeline {
     stages {
         stage('Compile') {
             steps {
-                sh 'cp -r /var/lib/jenkins/workspace/MSPR_GoSecuri/* /var/lib/jenkins/workspace/MSPR_Pipeline/'
+                sh 'cd /var/jenkins_home/workplace/MSPR_GoSecuri; rm -rf *'
                 sh 'mvn clean'
-                sh 'mvn compile'
             }
         }
+        stage("Clone") {
+                git branch: 'main', url: 'https://github.com/psaidani/GoSecuri.git'
+            }
         stage("Test"){
             steps{
                 sh 'mvn test'
@@ -17,11 +19,6 @@ pipeline {
         stage('Build'){
             steps{
                 sh 'mvn exec:java'
-            }
-        }
-        stage('Deploy'){
-            steps{
-                sh 'scp -r htmlFiles/* /home/webuser/www/html'
             }
         }
     }
