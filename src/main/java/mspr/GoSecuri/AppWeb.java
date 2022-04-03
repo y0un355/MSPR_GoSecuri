@@ -170,7 +170,9 @@ public class AppWeb {
 			writer.close();
 		}
 		catch(IOException e) {
-
+		// catch IOExceptions
+					System.out.println("General I/O exception: " + e.getMessage());
+					e.printStackTrace();
 		}
 	}
 
@@ -179,7 +181,6 @@ public class AppWeb {
 			PrintWriter writer = new PrintWriter("src/files/index.html", "UTF-8");
 			writer.print("<!DOCTYPE html>\r\n"
 					+ "<html lang=\"en\">\r\n"
-					+ "<FONT face=\"roboto\">\r\n"
 					+ "    <head>\r\n"
 					+ "<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />"
 					+ "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />\r\n"
@@ -189,7 +190,7 @@ public class AppWeb {
 					+ "        <!-- Favicon-->\r\n"
 					+ "        <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />\r\n"
 					+ "        <!-- Core theme CSS (includes Bootstrap)-->\r\n"
-					+ "        <link href=\"css/styles.css\" rel=\"stylesheet\" />\r\n"
+					+ "        <link href=\"../css/styles.css\" rel=\"stylesheet\" />\r\n"
 					+ "    </head>\r\n"
 					+ "    <body style=\"Light\">\r\n"
 					+ "        <!-- Responsive navbar-->\r\n"
@@ -203,7 +204,7 @@ public class AppWeb {
 					+ "        <!-- Header - set the background image for the header in the line below-->\r\n"
 					+ "        <header class=\"py-5 bg-image-full\">\r\n"
 					+ "            <div class=\"text-center my-5\">\r\n"
-					+ "                <img class=\"img-fluid rounded-circle mb-4\" src=\"src/img/logo.png\" />\r\n"
+					+ "                <img class=\"img-fluid rounded-circle mb-4\" src=\"../img/logo.png\" />\r\n"
 					+ "                <h1 class=\"text-white fs-3 fw-bolder\">GO Securi</h1>\r\n"
 					+ "                <p class=\"text-white-50 mb-0\">The best of security</p>\r\n"
 					+ "            </div>\r\n"
