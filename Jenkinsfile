@@ -2,23 +2,26 @@ pipeline {
     agent any
 
     stages {
-        stage ('Build') {
+        stage('Compile') {
             steps {
-                git branch: 'main',
-                credentialsId: 'a2708897-085f-4caf-a81d-8e46c2ebaa10',
-                url: 'https://github.com/y0un355/MSPR_GoSecuri.git'
-            }
-          }
-        stage('Test') {
-            steps {
-                bat 'java'
+                sh 'cp -r /var/lib/jenkins/workspace/MSPR_GoSecuri/* /var/lib/jenkins/workspace/MSPR_Pipeline/'
+                sh 'mvn clean'
+                sh 'mvn compile'
             }
         }
-        stage('Deliver') {
-            steps {
-                bat 'mvn -B -DskipTests clean package'
-                sh 'java'
-
+        stage("Test"){
+            steps{
+                sh 'mvn test'
+            }
+        }
+        stage('Build'){
+            steps{
+                sh 'mvn exec:java'
+            }
+        }
+        stage('Deploy'){
+            steps{
+                sh 'scp -r htmlFiles/* /home/webuser/www/html'
             }
         }
     }
