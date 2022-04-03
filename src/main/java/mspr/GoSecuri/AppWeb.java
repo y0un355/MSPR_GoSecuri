@@ -31,10 +31,14 @@ public class AppWeb {
 			+ "        <script src=\"js/scripts.js\"></script>\r\n"
 			+ "    </body>\r\n"
 			+ "</html>";
+
 	public static ListIterator<String> listAgent;
 
 	public static void main(String args[]) {
-	
+		writeFile("https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/src/files/staff.txt", "staff.txt");
+		writeFile("https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/src/files/liste.txt", "liste.txt");
+		writeIndex();
+		writeFiles();
 	}
 	
 	public static ArrayList<String> newCollection(){
@@ -73,6 +77,7 @@ public class AppWeb {
 			}).start();
 		}
 	}
+
 	public static void writeFile(String url, String name) {
 		Okhttp client = new Okhttp();
 		try {
@@ -171,6 +176,7 @@ public class AppWeb {
 
 		}
 	}
+
 	public static void writeIndex() {
 		try {
 			PrintWriter writer = new PrintWriter("src/files/index.html", "UTF-8");
