@@ -171,5 +171,76 @@ public class AppWeb {
 
 		}
 	}
+	public static void writeIndex() {
+		try {
+			PrintWriter writer = new PrintWriter("src/files/index.html", "UTF-8");
+			writer.print("<!DOCTYPE html>\r\n"
+					+ "<html lang=\"en\">\r\n"
+					+ "<FONT face=\"roboto\">\r\n"
+					+ "    <head>\r\n"
+					+ "<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />"
+					+ "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />\r\n"
+					+ "        <meta name=\"description\" content=\"\" />\r\n"
+					+ "        <meta name=\"author\" content=\"\" />\r\n"
+					+ "        <title>Go Securi</title>\r\n"
+					+ "        <!-- Favicon-->\r\n"
+					+ "        <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />\r\n"
+					+ "        <!-- Core theme CSS (includes Bootstrap)-->\r\n"
+					+ "        <link href=\"css/styles.css\" rel=\"stylesheet\" />\r\n"
+					+ "    </head>\r\n"
+					+ "    <body style=\"Light\">\r\n"
+					+ "        <!-- Responsive navbar-->\r\n"
+					+ "        <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n"
+					+ "            <div class=\"container\">\r\n"
+					+ "                <a class=\"navbar-brand\" href=\"index.html\">GoSecuri</a>\r\n"
+					+ "                <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"><span class=\"navbar-toggler-icon\"></span></button>\r\n"
+					+ "                \r\n"
+					+ "            </div>\r\n"
+					+ "        </nav>\r\n"
+					+ "        <!-- Header - set the background image for the header in the line below-->\r\n"
+					+ "        <header class=\"py-5 bg-image-full\">\r\n"
+					+ "            <div class=\"text-center my-5\">\r\n"
+					+ "                <img class=\"img-fluid rounded-circle mb-4\" src=\"src/img/logo.png\" />\r\n"
+					+ "                <h1 class=\"text-white fs-3 fw-bolder\">GO Securi</h1>\r\n"
+					+ "                <p class=\"text-white-50 mb-0\">The best of security</p>\r\n"
+					+ "            </div>\r\n"
+					+ "        </header>\r\n"
+					+ "        \r\n"
+					+ "        <!-- Content section-->\r\n"
+					+ "        <section class=\"py-5\">\r\n"
+					+ "            <div class=\"container my-5\">\r\n"
+					+ "                <div class=\"row justify-content-center\">\r\n"
+					+ "                    <div class=\"col-lg-6\">");
+			BufferedReader br = new BufferedReader(new FileReader("src/files/staff.txt"));
+			try {
+				String line = br.readLine();
 
+				while (line != null) {
+					writer.print("<a href=\"" + line + ".html\">" + line + "</a><br>");
+					line = br.readLine();
+				}
+			} finally {
+				br.close();
+			}
+			writer.print("                    </div>\r\n"
+					+ "                </div>\r\n"
+					+ "            </div>\r\n"
+					+ "        </section>\r\n"
+					+ "        <!-- Footer-->\r\n"
+					+ "        <footer class=\"py-5 bg-dark\">\r\n"
+					+ "            <div class=\"container\"><p class=\"m-0 text-center text-white\">Copyright &copy; Go Securi</p></div>\r\n"
+					+ "        </footer>\r\n"
+					+ "        <!-- Bootstrap core JS-->\r\n"
+					+ "        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\"></script>\r\n"
+					+ "        <!-- Core theme JS-->\r\n"
+					+ "        <script src=\"src/js/scripts.js\"></script>\r\n"
+					+ "    </body>\r\n"
+					+ "</FONT>\r\n"
+					+ "</html>");
+			writer.close();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
