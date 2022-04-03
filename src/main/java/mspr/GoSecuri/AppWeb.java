@@ -1,12 +1,11 @@
 package mspr.GoSecuri;
-
+import java.util.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.ListIterator;
 
 
 public class AppWeb {
 
+	public static ListIterator<String> listAgent;
 	public static String header = "<!DOCTYPE html>\r\n"
 			+ "<html lang=\"en\">\r\n"
 			+ "<FONT face=\"roboto\">\r\n"
@@ -32,15 +31,13 @@ public class AppWeb {
 			+ "    </body>\r\n"
 			+ "</html>";
 
-	public static ListIterator<String> listAgent;
-
 	public static void main(String args[]) {
-		writeFile("https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/src/files/staff.txt", "staff.txt");
-		writeFile("https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/src/files/liste.txt", "liste.txt");
+		writeFile("https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/main/src/files/staff.txt", "staff.txt");
+		writeFile("https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/main/src/files/liste.txt", "liste.txt");
 		writeIndex();
 		writeFiles();
 	}
-	
+
 	public static ArrayList<String> newCollection(){
 		ArrayList<String> staffList = new ArrayList<String>();
 		try {
@@ -58,9 +55,9 @@ public class AppWeb {
 		}
 		catch(IOException e) {
 			// catch IOExceptions
-				System.out.println("General I/O exception: " + e.getMessage());
-				e.printStackTrace();
-			}
+			System.out.println("General I/O exception: " + e.getMessage());
+			e.printStackTrace();
+		}
 		return staffList;
 	}
 
@@ -71,7 +68,7 @@ public class AppWeb {
 		for(int i = 0;i < list.size();i++){
 			new Thread(() -> {
 				String name = listAgent.next();
-				writeFile("https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/src/files/" + name + ".txt", name + ".txt");
+				writeFile("https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/main/src/files/" + name + ".txt", name + ".txt");
 				writeAgent(name);
 
 			}).start();
@@ -122,7 +119,7 @@ public class AppWeb {
 			br1.readLine();
 			writer.print("</div>\r\n"
 					+ "\r\n"
-					+ "        <div class=\"photo\">" + "<img src=\"https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/src/img/" + name + ".jpg\"height=\"100\" weith=\"100\">" + "</div>\r\n"
+					+ "        <div class=\"photo\">" + "<img src=\"https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/main/src/img/" + name + ".jpg\"height=\"100\" weith=\"100\">" + "</div>\r\n"
 					+ "        <!-- Content section-->\r\n"
 					+ "        <section class=\"py-5\">\r\n"
 					+ "            <div class=\"container my-5\">\r\n"
@@ -144,7 +141,7 @@ public class AppWeb {
 					br1.close();
 					if(find) {
 						find = false;
-						writer.print("<img src=\"https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/src/img/ok.jpg\">");
+						writer.print("<img src=\"https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/main/src/img/ok.jpg\">");
 						for(int i = 1; i < s.length;i++) {
 							writer.print(s[i] + " ");
 
@@ -152,7 +149,7 @@ public class AppWeb {
 						writer.print("<br>");
 					}
 					else {
-						writer.print("<img src=\"https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/src/img/pasok.png\">");
+						writer.print("<img src=\"https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/main/src/img/pasok.png\">");
 						for(int i = 1; i < s.length;i++) {
 							writer.print(s[i] + " ");
 						}
