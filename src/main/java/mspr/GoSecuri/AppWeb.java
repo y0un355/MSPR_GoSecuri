@@ -1,8 +1,6 @@
 package mspr.GoSecuri;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
@@ -73,6 +71,104 @@ public class AppWeb {
 				writeAgent(name);
 
 			}).start();
+		}
+	}
+	public static void writeFile(String url, String name) {
+		Okhttp client = new Okhttp();
+		try {
+			String response = client.run(url);
+			PrintWriter writer = new PrintWriter("src/files/"+name, "UTF-8");
+			writer.print(response);
+			writer.close();
+		}
+		catch(IOException e) {
+			// catch IOExceptions
+			System.out.println("General I/O exception: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+
+	public static void writeAgent(String name) {
+		boolean find = false;
+		try {
+			InputStream fileInputStream = new FileInputStream("src/files/liste.txt");
+			Reader charsetReader = new InputStreamReader(fileInputStream,"UTF-8");
+			InputStream fileInputStream1 = new FileInputStream("src/files/"+ name +".txt");
+			Reader charsetReader1 = new InputStreamReader(fileInputStream1,"UTF-8");
+
+			BufferedReader br = new BufferedReader(charsetReader);
+			BufferedReader br1 = new BufferedReader(charsetReader1);
+			PrintWriter writer = new PrintWriter("src/files/" + name +".html", "UTF-8");
+			writer.print(header);
+			writer.print("<body style=\"Light\">\r\n"
+					+ "        <!-- Navbar-->\r\n"
+					+ "        <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n"
+					+ "            <div class=\"container\">\r\n"
+					+ "                <a class=\"navbar-brand\" href=\"index.html\">GoSecuri</a>\r\n"
+					+ "                <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"><span class=\"navbar-toggler-icon\"></span></button>\r\n"
+					+ "                \r\n"
+					+ "            </div>\r\n"
+					+ "        </nav>\r\n"
+					+ "        \r\n"
+					+ "        <div class=\"name\">\r\n"
+					+ "           <p>" + br1.readLine() + " " + br1.readLine());
+			br1.readLine();
+			br1.readLine();
+			br1.readLine();
+			writer.print("</div>\r\n"
+					+ "\r\n"
+					+ "        <div class=\"photo\">" + "<img src=\"https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/src/img/" + name + ".jpg\"height=\"100\" weith=\"100\">" + "</div>\r\n"
+					+ "        <!-- Content section-->\r\n"
+					+ "        <section class=\"py-5\">\r\n"
+					+ "            <div class=\"container my-5\">\r\n"
+					+ "                <div class=\"row justify-content-center\">\r\n"
+					+ "                    <div class=\"col-lg-6\">");
+			br1.close();
+			try {
+				String linel = br.readLine();
+				while (linel != null) {
+					String[] s = linel.split(" ");
+					br1 = new BufferedReader(new FileReader("src/files/"+ name +".txt"));
+					String line = br1.readLine();
+					while(line != null) {
+						if(line.compareTo(s[0]) == 0) {
+							find = true;
+						}
+						line = br1.readLine();
+					}
+					br1.close();
+					if(find) {
+						find = false;
+						writer.print("<img src=\"https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/src/img/ok.jpg\">");
+						for(int i = 1; i < s.length;i++) {
+							writer.print(s[i] + " ");
+
+						}
+						writer.print("<br>");
+					}
+					else {
+						writer.print("<img src=\"https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/src/img/pasok.png\">");
+						for(int i = 1; i < s.length;i++) {
+							writer.print(s[i] + " ");
+						}
+						writer.print("<br>");
+					}
+					linel = br.readLine();
+				}
+			}
+			finally {
+				br.close();
+			}
+			writer.print("</div>\r\n"
+					+ "                </div>\r\n"
+					+ "            </div>\r\n"
+					+ "        </section>\r\n");
+
+			writer.print(footer);
+			writer.close();
+		}
+		catch(IOException e) {
+
 		}
 	}
 
