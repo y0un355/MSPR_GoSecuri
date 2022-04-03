@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     stages {
         stage ('Build') {
             steps {
@@ -9,16 +9,17 @@ pipeline {
                 url: 'https://github.com/y0un355/MSPR_GoSecuri.git'
             }
           }
-       stage('Test') {
-                steps {
-                    bat 'java'
-                }
+        stage('Test') {
+            steps {
+                bat 'java'
             }
-            stage('Deliver') {
-                steps {
-                    bat 'mvn -B -DskipTests clean package'
-                    sh 'java'
+        }
+        stage('Deliver') {
+            steps {
+                bat 'mvn -B -DskipTests clean package'
+                sh 'java'
 
-                }
+            }
+        }
     }
 }
