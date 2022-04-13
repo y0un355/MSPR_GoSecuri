@@ -101,13 +101,24 @@ public class AppWeb {
 			BufferedReader br = new BufferedReader(charsetReader);
 			BufferedReader br1 = new BufferedReader(charsetReader1);
 			PrintWriter writer = new PrintWriter("src/files/" + name +".html", "UTF-8");
-			writer.print(header);
+			writer.print("<!DOCTYPE html>\r\n"
+					+ "<html lang=\"en\">\r\n"
+					+ "    <head>\r\n"
+					+ "<meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\" />"
+					+ "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />\r\n"
+					+ "        <meta name=\"description\" content=\"\" />\r\n"
+					+ "        <meta name=\"author\" content=\"\" />\r\n"
+					+ "        <title>MSPR GoSecuri -- Accueil </title>\r\n"
+					+ "        <!-- Favicon-->\r\n"
+					+ "        <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />\r\n"
+					+ "        <!-- Core theme CSS (includes Bootstrap)-->\r\n"
+					+ "        <link href=\"css/styles.css\" rel=\"stylesheet\" />\r\n"
+					+ "    </head>\r\n");
 			writer.print("<body style=\"Light\">\r\n"
 					+ "        <!-- Navbar-->\r\n"
 					+ "        <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n"
 					+ "            <div class=\"container\">\r\n"
 					+ "                <a class=\"navbar-brand\" href=\"index.html\">GoSecuri</a>\r\n"
-					+ "                <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"><span class=\"navbar-toggler-icon\"></span></button>\r\n"
 					+ "                \r\n"
 					+ "            </div>\r\n"
 					+ "        </nav>\r\n"
@@ -161,12 +172,21 @@ public class AppWeb {
 			finally {
 				br.close();
 			}
-			writer.print("</div>\r\n"
+			writer.print("                    </div>\r\n"
 					+ "                </div>\r\n"
 					+ "            </div>\r\n"
-					+ "        </section>\r\n");
-
-			writer.print(footer);
+					+ "        </section>\r\n"
+					+ "        <!-- Footer-->\r\n"
+					+ "        <footer class=\"py-5 bg-dark\">\r\n"
+					+ "            <div class=\"container\"><p class=\"m-0 text-center text-white\">Copyright &copy; Go Securi</p></div>\r\n"
+					+ "        </footer>\r\n"
+					+ "        <!-- Bootstrap core JS-->\r\n"
+					+ "        <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\"></script>\r\n"
+					+ "        <!-- Core theme JS-->\r\n"
+					+ "        <script src=\"src/js/scripts.js\"></script>\r\n"
+					+ "    </body>\r\n"
+					+ "</FONT>\r\n"
+					+ "</html>");
 			writer.close();
 		}
 		catch(IOException e) {
@@ -197,7 +217,6 @@ public class AppWeb {
 					+ "        <nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\">\r\n"
 					+ "            <div class=\"container\">\r\n"
 					+ "                <a class=\"navbar-brand\" href=\"index.html\">GoSecuri</a>\r\n"
-					+ "                <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\"><span class=\"navbar-toggler-icon\"></span></button>\r\n"
 					+ "                \r\n"
 					+ "            </div>\r\n"
 					+ "        </nav>\r\n"
