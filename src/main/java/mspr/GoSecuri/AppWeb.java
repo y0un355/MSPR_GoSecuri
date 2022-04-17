@@ -14,6 +14,9 @@ public class AppWeb {
 			+ "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />\r\n"
 			+ "        <meta name=\"description\" content=\"\" />\r\n"
 			+ "        <meta name=\"author\" content=\"\" />\r\n"
+			+"			<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n"
+			+"			<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n"
+			+"			<link href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap\" rel=\"stylesheet\">"
 			+ "        <title>Full Width Pics - Start Bootstrap Template</title>\r\n"
 			+ "        <!-- Favicon-->\r\n"
 			+ "        <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />\r\n"
@@ -31,7 +34,7 @@ public class AppWeb {
 			+ "    </body>\r\n"
 			+ "</html>";
 
-	public static void main(String args[]) {
+	public static void main(String[] args) {
 		writeFile("https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/main/src/files/staff.txt", "staff.txt");
 		writeFile("https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/main/src/files/liste.txt", "liste.txt");
 		writeIndex();
@@ -68,7 +71,7 @@ public class AppWeb {
 		for(int i = 0;i < list.size();i++){
 			new Thread(() -> {
 				String name = listAgent.next();
-				writeFile("https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/main/src/files/" + name + ".txt", name + ".txt");
+				writeFile("https://raw.githubusercontent.com/y0un355/MSPR_GoSecuri/main/src/files/", name + ".txt");
 				writeAgent(name);
 
 			}).start();
@@ -79,7 +82,7 @@ public class AppWeb {
 		Okhttp client = new Okhttp();
 		try {
 			String response = client.run(url);
-			PrintWriter writer = new PrintWriter("src/files/"+name, "UTF-8");
+			PrintWriter writer = new PrintWriter("src/files/"+name+".txt", "UTF-8");
 			writer.print(response);
 			writer.close();
 		}
@@ -111,8 +114,11 @@ public class AppWeb {
 					+ "        <title>MSPR GoSecuri -- Accueil </title>\r\n"
 					+ "        <!-- Favicon-->\r\n"
 					+ "        <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />\r\n"
+					+"			<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n"
+					+"			<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n"
+					+"			<link href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap\" rel=\"stylesheet\">"
 					+ "        <!-- Core theme CSS (includes Bootstrap)-->\r\n"
-					+ "        <link href=\"css/styles.css\" rel=\"stylesheet\" />\r\n"
+					+ "        <link href=\"C:/Users/You_F/IdeaProjects/MSPR_GoSecuri_1/src/css/styles.css\" rel=\"stylesheet\" />\r\n"
 					+ "    </head>\r\n");
 			writer.print("<body style=\"Light\">\r\n"
 					+ "        <!-- Navbar-->\r\n"
@@ -206,11 +212,14 @@ public class AppWeb {
 					+ "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" />\r\n"
 					+ "        <meta name=\"description\" content=\"\" />\r\n"
 					+ "        <meta name=\"author\" content=\"\" />\r\n"
+					+"			<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n"
+					+"			<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n"
+					+"			<link href=\"https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap\" rel=\"stylesheet\">"
 					+ "        <title>Go Securi</title>\r\n"
 					+ "        <!-- Favicon-->\r\n"
 					+ "        <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />\r\n"
 					+ "        <!-- Core theme CSS (includes Bootstrap)-->\r\n"
-					+ "        <link href=\"../css/styles.css\" rel=\"stylesheet\" />\r\n"
+					+ "        <link href=\"C:/Users/You_F/IdeaProjects/MSPR_GoSecuri_1/src/css/styles.css\" rel=\"stylesheet\" />\r\n"
 					+ "    </head>\r\n"
 					+ "    <body style=\"Light\">\r\n"
 					+ "        <!-- Responsive navbar-->\r\n"
@@ -223,7 +232,7 @@ public class AppWeb {
 					+ "        <!-- Header - set the background image for the header in the line below-->\r\n"
 					+ "        <header class=\"py-5 bg-image-full\">\r\n"
 					+ "            <div class=\"text-center my-5\">\r\n"
-					+ "                <img class=\"img-fluid rounded-circle mb-4\" src=\"../img/logo.png\" />\r\n"
+					+ "                <img class=\"img-fluid rounded-circle mb-4 logo\" src=\"../img/logo.png\" />\r\n"
 					+ "                <h1 class=\"text-white fs-3 fw-bolder\">GO Securi</h1>\r\n"
 					+ "                <p class=\"text-white-50 mb-0\">The best of security</p>\r\n"
 					+ "            </div>\r\n"

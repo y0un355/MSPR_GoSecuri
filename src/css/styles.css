@@ -32,7 +32,9 @@ h3 {
   padding: 5px 20px;
   margin: 0;
 }
-
+.logo {
+  align-content: center;
+}
 div#accueil ul {
   padding: 0;
 }
