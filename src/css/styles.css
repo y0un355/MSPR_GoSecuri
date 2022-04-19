@@ -4,7 +4,7 @@ html, body {
 }
 
 html{
-	font-family: Roboto;
+  font-family: Roboto, sans-serif;
 }
 
 body {
@@ -24,7 +24,7 @@ ul li {
 }
 
 h2 {
-  padding: 5px 20px;
+  padding: 5px 20px;a
   margin: 0;
 }
 
@@ -32,84 +32,74 @@ h3 {
   padding: 5px 20px;
   margin: 0;
 }
-.logo {
-  align-content: center;
-}
-div#accueil ul {
-  padding: 0;
-}
-
-div#header {
-  position: relative;
-}
-
-div#header {
-  height: 80px;
-  line-height: 80px;
-  margin: 0;
-  padding-left: 10px;
-  background: #e0e0e0;
-  color: #292929;
-  height: 150px;
+.navbar-brand {
+  background-color: #379ec1;
+  color: white;
+  width: 20vw;
+  padding: 14px 25px;
   text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 0 36vw 2vw;
+  transition: all 0.5s;
+}
+.navbar-brand:hover {
+  background-color: #659224;
+  color: white;
+}
+.img-fluid {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 20vw;
+  margin: 0 37.5vw 2vw;
 }
 
-
-
-div#navigation {
-  background: #659224;
-  height: 35em;
+.fw-bolder {
+  background-color: #659224;
+  color: white;
+  margin: 0 23vw 2vw;
+  padding: 12px;
+  padding-left: 22vw;
+  border-radius: 4px;
+}
+.mb-0 {
+  background-color: #379ec1;
+  color: white;
+  margin: 0 23vw 2vw;
+  padding: 12px;
+  padding-left: 21vw;
+  border-radius: 4px;
+  font-size: 22px;
+}
+.col-lg-6 {
+  background-color: #379ec1;
+  margin: 0 23vw;
 }
 
-div#navigation li {
-  list-style: none;
-}
-
-div#extra {
-  background: #379EC1;
+.col-lg-6 a {
+  background-color: #659224;
+  color: white;
+  width: 95%;
+  padding: 14px 25px;
   text-align: center;
-  height: 35em;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 22px;
 }
-
-
-
-div#wrapper {
-  float: left;
-  width: 100%;
+.col-lg-6 img {
+  margin-left: 20vw;
+  color: white;
 }
-
-div#content {
-  margin: 0 25%;
+.photo img {
+  margin-left: 44vw;
 }
-
-div#navigation {
-  float: left;
-  width: 25%;
-  margin-left: -100%;
-}
-
-div#extra {
-  float: left;
-  width: 25%;
-  margin-left: -25%;
-}
-
-/* div#footer {
-  text-align: center;
-  width: 100%;
-  bottom: 0;
-} */
-
-div#footer {
-  position: fixed;
-  background: #42444e;
-  color: #fff;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin-bottom: 0px;
-}
-
-div#footer p {
-  text-align: center;
+.name p {
+  background-color: #659224;
+  color: white;
+  margin: 0 23vw 2vw;
+  padding: 12px;
+  padding-left: 21vw;
+  border-radius: 4px;
+  font-size: 22px;
 }
