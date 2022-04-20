@@ -20,7 +20,7 @@ public class AppWeb {
 			+ "        <!-- Favicon-->\r\n"
 			+ "        <link rel=\"icon\" type=\"image/x-icon\" href=\"assets/favicon.ico\" />\r\n"
 			+ "        <!-- Core theme CSS (includes Bootstrap)-->\r\n"
-			+ "        <link href=\"css/styles.css\" rel=\"stylesheet\" />\r\n"
+			+ "        <link href=\"../css/styles.css\" rel=\"stylesheet\" />\r\n"
 			+ "    </head>\r\n";
 	public static String footer = "<!-- Footer-->\r\n"
 			+ "        <footer class=\"py-5 bg-dark\">\r\n"
